@@ -16,8 +16,9 @@
 import uuid
 from datetime import datetime
 
-from sqlalchemy import BigInteger, Boolean, DateTime, ForeignKey, String, Uuid, func
+from sqlalchemy import BigInteger, Boolean, DateTime, ForeignKey, String, Uuid, func, Float
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from sqlalchemy.ext.declarative import declarative_base
 
 
 class Base(DeclarativeBase):
@@ -27,20 +28,19 @@ class Base(DeclarativeBase):
     update_time: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
     )
-
-from sqlalchemy import Column, Integer, String, Float
-from sqlalchemy.ext.declarative import declarative_base
-
+    
 Base = declarative_base()
 
 class Document(Base):
     __tablename__ = 'documents'
 
-    id = Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
     file_location: Mapped[str] = mapped_column(
         String(512), nullable=True
     )
-    content = Column(String, nullable=False)
+    content: Mapped[str] = mapped_column(
+        String(1024), nullable=False
+    )
     embedding_present: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
     embeddings: Mapped[Float] = mapped_column(Float, nullable=False)
     
