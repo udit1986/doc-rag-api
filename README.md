@@ -39,14 +39,14 @@ poetry install
 docker-compose up -d
 
 ### Run Alembic migrations
-alembic upgrade head
+poetry run alembic upgrade head
 ```
 
 ### 4. Now you can run app
 
 ```bash
 ### And this is it:
-uvicorn app.main:app --reload
+poetry run uvicorn app.main:app --reload
 
 ```
 
@@ -96,4 +96,4 @@ There are some **opinionated** default settings in `/app/main.py` for documentat
     )
     ```
 
-   Docs page is simply `/` (by default in FastAPI it is `/docs`). You can change it completely for the project, just as title, version, etc.
+   Docs page is simply `/docs`.
