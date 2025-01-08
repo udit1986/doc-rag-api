@@ -33,7 +33,8 @@ class Database(BaseModel):
 
 class Settings(BaseSettings):
     database: Database
-
+    openai_api_key: SecretStr
+    
     @computed_field  # type: ignore[prop-decorator]
     @property
     def sqlalchemy_database_uri(self) -> URL:
