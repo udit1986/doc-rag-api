@@ -34,7 +34,7 @@ async def answer_question(question: QuestionRequest, db: AsyncSession):
 
 async def select_documents(criteria: dict, db: AsyncSession):
     # Implement logic to select documents based on criteria
-    pass
+    return {"document_ids": [1,2]}
 
 # Embedding generation
 async def generate_embeddings(content: str):
