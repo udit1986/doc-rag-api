@@ -56,7 +56,7 @@ Note, it will create databases for session and run tests in many processes by de
 
 For more details about initial database setup, see logic `app/tests/conftest.py` file, `fixture_setup_new_test_database` function.
 
-Moreover, there is coverage pytest plugin with required code coverage level 100%.
+Moreover, there is coverage pytest plugin with required code coverage level 90%.
 
 ```bash
 # see all pytest configuration flags in pyproject.toml
